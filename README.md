@@ -1,6 +1,6 @@
-# esptool.py
+# Fork of esptool.py for eLITe-Board/eLITe-Connect
 
-A Python-based, open source, platform independent, utility to communicate with the ROM bootloader in Espressif ESP8266 & ESP32 series chips.
+A Python-based, open source, platform independent, utility to communicate with the ROM bootloader in Espressif ESP8266 & ESP32 series chips. This fork includes modifications required for flashing the ESP32 included on the eLITe-Connect via a passthrough connection over the STM32 board.
 
 esptool.py was started by Fredrik Ahlberg (@[themadinventor](https://github.com/themadinventor/)) as an unofficial community project. It is now also supported by Espressif. Current primary maintainer is Angus Gratton (@[projectgus](https://github.com/projectgus/)).
 
@@ -14,13 +14,13 @@ esptool.py is Free Software under a GPLv2 license.
 
 You will need [either Python 2.7 or Python 3.4 or newer](https://www.python.org/downloads/) installed on your system.
 
-The latest stable esptool.py release can be installed from [pypi](http://pypi.python.org/pypi/esptool) via pip:
+The latest esptool.py fork can be installed via pip:
 
 ```
-$ pip install esptool
+$ pip install git+git://github.com/eliteboard/esptool.git@master
 ```
 
-With some Python installations this may not work and you'll receive an error, try `python -m pip install esptool` or `pip2 install esptool`, or consult your [Python installation manual](https://pip.pypa.io/en/stable/installing/) for information about how to access pip.
+With some Python installations this may not work and you'll receive an error, try `python -m pip install git+git://github.com/eliteboard/esptool.git@master` or `pip2 install git+git://github.com/eliteboard/esptool.git@master`, or consult your [Python installation manual](https://pip.pypa.io/en/stable/installing/) for information about how to access pip.
 
 [Setuptools](https://setuptools.readthedocs.io/en/latest/userguide/quickstart.html) is also a requirement which is not available on all systems by default. You can install it by a package manager of your operating system, or by `pip install setuptools`.
 
@@ -31,7 +31,7 @@ After installing, you will have `esptool.py` installed into the default Python e
 Development mode allows you to run the latest development version from this repository.
 
 ```
-$ git clone https://github.com/espressif/esptool.git
+$ git clone https://github.com/eliteboard/esptool.git
 $ cd esptool
 $ pip install --user -e .
 ```
