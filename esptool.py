@@ -382,7 +382,17 @@ class ESPLoader(object):
               + (packet.replace(b'\xdb', b'\xdb\xdd').replace(b'\xc0', b'\xdb\xdc')) \
               + b'\xc0'
         self.trace("Write %d bytes: %s", len(buf), HexFormatter(buf))
-        self._port.write(buf)
+        remaining = len(buf)
+        start = 0
+        blocksize = 12  # trial and error
+        while remaining > 0:
+            if remaining >= blocksize:
+                self._port.write(buf[start:(start+blocksize)])
+            else:
+                self._port.write(buf[start:])
+            remaining -= blocksize
+            start += blocksize
+            time.sleep(0.001)
 
     def trace(self, message, *format_args):
         if self._trace_enabled:
